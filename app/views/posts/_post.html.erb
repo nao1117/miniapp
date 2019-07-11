@@ -1,0 +1,18 @@
+   <div class="col m6 s12">
+      <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="<%= post.image %>">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4"><%=post.title%><i class="material-icons right">more</i></span>
+            <% if user_signed_in? && current_user.id == post.user_id %>
+            <span><i class="far fa-edit"></i><%= link_to '編集', "/posts/#{post.id}/edit", method: :get %></span>
+            <span><i class="fas fa-trash-alt"></i><%= link_to '削除', "/posts/#{post.id}/", method: :delete %></span>
+            <% end %>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%=post.title%><i class="material-icons right">close</i></span>
+            <p><%=post.text%></p>
+          </div>
+        </div>
+  </div>
